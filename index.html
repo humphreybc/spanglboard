@@ -68,14 +68,13 @@
           <button class="box">This drives me nuts</button>
           <button class="box">We look like a fucking idiot</button>
           <button class="box">Helloooo</button>
-          <button class="box">Don't be so fucking german</button>
+          <button class="box">I find this interesting</button>
           <button class="box">Harden the FUCK up</button>
-          <button class="box">Keep driving your truck</button>
           <button class="box">Ve need to find a vay</button>
           <button class="box">Align across the products</button>
           <button class="box">Righteo</button>
-          <button class="box">Just do it</button>
-          <button class="box">Ship a fucking camel</button>
+          <button class="box">Just do it!</button>
+          <button class="box">Okay, let's ship this baby</button>
           <button class="box">It will be brutal</button>
           <button class="box">Make a call!</button>
           <button class="box">This drives me nuts</button>
@@ -84,4 +83,20 @@
         </div>
     </div>
   </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      function play_sound() {
+        audio = new Audio("VideoRecord.ogg");
+        audio.play()
+      }
+
+      $(document).on('click', '.box', function(e) {
+        play_sound();
+      });
+    });
+  </script>
+
 </html>
