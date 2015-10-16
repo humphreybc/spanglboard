@@ -1,2 +1,2 @@
-# spanglboard
+# Spanglboard
 http://spanglboard.com/

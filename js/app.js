@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   function play_sound() {
-    audio = new Audio('VideoRecord.ogg');
+    audio = new Audio('assets/VideoRecord.ogg');
     audio.play()
   }
 
