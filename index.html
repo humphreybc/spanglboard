@@ -1,23 +1,74 @@
 <html>
   <head>
     <title>Spanglboard</title>
-    <link rel="shortcut icon" href="jurgen.gif" />
+    <link rel="shortcut icon" href="favicon.png" />
 
     <style type="text/css">
+      body {
+        font-family: 'Helvetica Neue', sans-serif;
+        font-weight: 600;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        text-align: center;
+      }
       .container {
-        margin: 0 auto;
-        width: 20px;
-        top: 50%;
-        position: relative;
-        transform: translateY(-50%);
+        margin: 40px auto;
+        max-width: 960px;
+      }
+      .audio {
+        align-content: flex-end;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .box {
+        border: 3px solid black;
+        border-radius: 3px;
+        color: black;
+        cursor: pointer;
+        flex-grow: 1;
+        height: 40px;
+        line-height: 40px;
+        margin: 10px;
+        padding: 5px 20px;
+        transition: margin 100ms ease-in-out;
+      }
+      .box:hover {
+        background-color: #f5f5f5;
+      }
+      .box:active {
+        margin-bottom: 8px;
+        margin-top: 12px;
       }
     </style>
 
   </head>
 
   <body>
-    <div class="container">
-      <img src="jurgen.gif" />
+    <div class="container center">
+        <img src="jurgen.svg" width="140" />
+        <h1>Spanglboard</h1>
+        <div class="audio">
+          <div class="box">Brilliant don't get me wrong</div>
+          <div class="box">This drives me nuts</div>
+          <div class="box">We look like a fucking idiot</div>
+          <div class="box">Helloooo</div>
+          <div class="box">Don't be so fucking german</div>
+          <div class="box">Harden the FUCK up</div>
+          <div class="box">Keep driving your truck</div>
+          <div class="box">Ve need to find a vay</div>
+          <div class="box">Align across the products</div>
+          <div class="box">Righteo</div>
+          <div class="box">Just do it</div>
+          <div class="box">Ship a fucking camel</div>
+          <div class="box">It will be brutal</div>
+          <div class="box">Make a call!</div>
+          <div class="box">This drives me nuts</div>
+          <div class="box">Benjamin, stop being a cynical asshole!</div>
+          <div class="box">We have massive problems</div>
+        </div>
     </div>
   </body>
 </html>
