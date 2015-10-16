@@ -12,6 +12,7 @@
         font-weight: 600;
         margin: 5px;
         padding: 0;
+        -webkit-font-smoothing: antialiased;
       }
       .center {
         text-align: center;
@@ -78,25 +79,12 @@
           <button class="box">It will be brutal</button>
           <button class="box">Make a call!</button>
           <button class="box">This drives me nuts</button>
-          <button class="box">Benjamin, stop being a cynical asshole!</button>
+          <button class="box">Benjamin, stop being a cynical asshole</button>
           <button class="box">We have massive problems</button>
         </div>
     </div>
   </body>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-
-      function play_sound() {
-        audio = new Audio("VideoRecord.ogg");
-        audio.play()
-      }
-
-      $(document).on('click', '.box', function(e) {
-        play_sound();
-      });
-    });
-  </script>
-
+  <script src="app.js"></script>
 </html>
