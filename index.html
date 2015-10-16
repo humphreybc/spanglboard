@@ -8,8 +8,9 @@
     <style type="text/css">
       body {
         font-family: 'Helvetica Neue', sans-serif;
+        font-size: 16px;
         font-weight: 600;
-        margin: 0;
+        margin: 5px;
         padding: 0;
       }
       .center {
@@ -26,24 +27,31 @@
         flex-wrap: wrap;
       }
       .box {
+        background-color: white;
         border: 3px solid black;
         border-radius: 3px;
         color: black;
         cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        font-family: 'Helvetica Neue', sans-serif;
         flex-grow: 1;
-        height: 40px;
-        line-height: 40px;
+        height: 50px;
+        line-height: 1;
         margin: 10px;
         padding: 5px 20px;
         transition: margin 100ms ease-in-out, box-shadow 100ms;
+        -webkit-tap-highlight: none;
+        outline: none;
       }
       .box:hover {
-        background-color: #f5f5f5;
-        box-shadow: 2px 4px 5px rgba(0,0,0,0.1);
+        background-color: #B2EBF2;
+        box-shadow: 0px 2px 0px rgba(0,0,0,0.1);
         margin-top: 8px;
         margin-bottom: 12px;
       }
       .box:active {
+        box-shadow: none;
         margin-bottom: 8px;
         margin-top: 12px;
       }
@@ -56,23 +64,23 @@
         <img src="jurgen.svg" width="140" />
         <h1>Spanglboard</h1>
         <div class="audio">
-          <div class="box">Brilliant don't get me wrong</div>
-          <div class="box">This drives me nuts</div>
-          <div class="box">We look like a fucking idiot</div>
-          <div class="box">Helloooo</div>
-          <div class="box">Don't be so fucking german</div>
-          <div class="box">Harden the FUCK up</div>
-          <div class="box">Keep driving your truck</div>
-          <div class="box">Ve need to find a vay</div>
-          <div class="box">Align across the products</div>
-          <div class="box">Righteo</div>
-          <div class="box">Just do it</div>
-          <div class="box">Ship a fucking camel</div>
-          <div class="box">It will be brutal</div>
-          <div class="box">Make a call!</div>
-          <div class="box">This drives me nuts</div>
-          <div class="box">Benjamin, stop being a cynical asshole!</div>
-          <div class="box">We have massive problems</div>
+          <button class="box">Brilliant don't get me wrong</button>
+          <button class="box">This drives me nuts</button>
+          <button class="box">We look like a fucking idiot</button>
+          <button class="box">Helloooo</button>
+          <button class="box">Don't be so fucking german</button>
+          <button class="box">Harden the FUCK up</button>
+          <button class="box">Keep driving your truck</button>
+          <button class="box">Ve need to find a vay</button>
+          <button class="box">Align across the products</button>
+          <button class="box">Righteo</button>
+          <button class="box">Just do it</button>
+          <button class="box">Ship a fucking camel</button>
+          <button class="box">It will be brutal</button>
+          <button class="box">Make a call!</button>
+          <button class="box">This drives me nuts</button>
+          <button class="box">Benjamin, stop being a cynical asshole!</button>
+          <button class="box">We have massive problems</button>
         </div>
     </div>
   </body>
