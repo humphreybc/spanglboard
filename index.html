@@ -12,25 +12,29 @@
         <img src="assets/jurgen.svg" width="140" height="140" />
         <h1>Spanglboard</h1>
         <div class="audio">
-          <button class="box">Brilliant don't get me wrong</button>
-          <button class="box">This drives me nuts</button>
-          <button class="box">We look like a fucking idiot</button>
-          <button class="box">Helloooo</button>
-          <button class="box">I find this interesting</button>
-          <button class="box">Harden the FUCK up</button>
-          <button class="box">Ve need to find a vay</button>
-          <button class="box">Align across the products</button>
-          <button class="box">Righteo</button>
-          <button class="box">Just do it!</button>
-          <button class="box">Okay, let's ship this baby</button>
-          <button class="box">It will be brutal</button>
-          <button class="box">Make a call!</button>
-          <button class="box">This drives me nuts</button>
-          <button class="box">Benjamin, stop being a cynical asshole</button>
-          <button class="box">We have massive problems</button>
+          <button id="beast" class="box" onclick="document.getElementById('beast-audio').play()">Beast <span class="progress"></span></button>
+          <button id="nochance" class="box" onclick="document.getElementById('nochance-audio').play()">There is no chance <span class="progress"></span></button>
+          <button id="questioning" class="box" onclick="document.getElementById('questioning-audio').play()">I’m just questioning this <span class="progress"></span></button>
+          <button class="box">Helloooo <span class="progress"></span></button>
+          <button class="box">I find this interesting <span class="progress"></span></button>
+          <button class="box">Harden the FUCK up <span class="progress"></span></button>
+          <button class="box">Ve need to find a vay <span class="progress"></span></button>
+          <button class="box">Align across the products <span class="progress"></span></button>
+          <button class="box">Righteo <span class="progress"></span></button>
+          <button class="box">Just do it! <span class="progress"></span></button>
+          <button class="box">Okay, let's ship this baby <span class="progress"></span></button>
+          <button class="box">It will be brutal <span class="progress"></span></button>
+          <button class="box">Make a call! <span class="progress"></span></button>
+          <button class="box">This drives me nuts <span class="progress"></span></button>
+          <button class="box">Benjamin, stop being a cynical asshole <span class="progress"></span></button>
+          <button class="box">We have massive problems <span class="progress"></span></button>
         </div>
     </div>
   </body>
+
+  <audio id="beast-audio" src="assets/beast.ogg"></audio>
+  <audio id="nochance-audio" src="assets/nochance.ogg"></audio>
+  <audio id="questioning-audio" src="assets/questioning.ogg"></audio>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="js/app.js"></script>

@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 16px;
@@ -6,20 +10,24 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
 }
+
 .center {
   text-align: center;
 }
+
 .container {
   margin: 40px auto;
   max-width: 960px;
 }
+
 .audio {
   align-content: flex-end;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.box {
+
+button.box {
   background-color: white;
   border: 3px solid black;
   border-radius: 3px;
@@ -33,18 +41,37 @@ body {
   line-height: 1;
   margin: 10px;
   padding: 5px 20px;
+  position: relative;
   transition: margin 100ms ease-in-out, box-shadow 100ms;
   -webkit-tap-highlight: none;
   outline: none;
+  z-index: 1;
 }
-.box:hover {
+
+button.box:hover {
   background-color: #B2EBF2;
   box-shadow: 0px 2px 0px rgba(0,0,0,0.1);
   margin-top: 8px;
   margin-bottom: 12px;
 }
-.box:active {
+
+button.box:active {
   box-shadow: none;
   margin-bottom: 8px;
   margin-top: 12px;
+}
+
+span.progress {
+  background-color: rgba(0,0,0,0.05);
+  bottom: 0;
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  transition: width 2s linear;
+  width: 0;
+}
+
+span.progress.active {
+  width: 100%;
 }
