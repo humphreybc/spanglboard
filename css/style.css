@@ -68,10 +68,9 @@ span.progress {
   height: 100%;
   left: 0;
   position: absolute;
-  transition: width 2s linear;
   width: 0;
 }
 
-span.progress.active {
+.active span.progress {
   width: 100%;
 }
