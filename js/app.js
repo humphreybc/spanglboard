@@ -1,7 +1,12 @@
 $( document ).ready(function(){
 
-  function playAudio(id){
+  function getAudio(id) {
     a = document.getElementById(id + "-audio");
+    return a;
+  }
+
+  function playAudio(id){
+    a = getAudio(id);
     length = getLength(a);
     showProgress(id, length);
     
@@ -17,15 +22,40 @@ $( document ).ready(function(){
     id = "#" + id;
     transition = "transition: width " + length + "s linear;"
     $(id).find(".progress").attr("style", transition);
-    $(id).addClass("active");
+    $(id).addClass("playing");
     
     setTimeout(function(){
-      $(id).removeClass("active");
+      $(id).removeClass("playing");
     }, length * 1000);
   }
 
-  $(".box").on( "click", function(){
+  function randomMode() {
+    var soundbites = $(".audio");
+    var number = Math.floor(Math.random() * soundbites.length);
+    var soundbite = soundbites[number];
+
+    id = soundbite.id;
+    a = getAudio(id);
+    length = getLength(a);
+
+    setTimeout(function(){ 
+      a.play();
+      showProgress(id, length);
+      randomMode();
+    }, length * 800);
+  }
+
+  $(".audio").on("click", function(){
     playAudio(this.id);
+  });
+
+  $("#random-mode").on("click", function(){
+    if ($("body").hasClass("random")) {
+      $("body").removeClass("random");
+    } else {
+      $("body").addClass("random");
+      randomMode();
+    }
   });
 
 });

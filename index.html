@@ -1,7 +1,10 @@
 <html>
   <head>
-    <title>Spanglboard</title>
     <meta charset="utf-8">
+    
+    <title>Spanglboard</title>
+    <meta name="description" content="Soundbites on demand!" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" href="assets/favicon.png" />
     <link rel="stylesheet" href="css/style.css">
@@ -11,60 +14,62 @@
     <div class="container center">
         <img src="assets/jurgen.svg" width="140" height="140" />
         <h1>Spanglboard</h1>
-        <div class="audio">
-          <button id="confused" class="box">I’m getting confused <span class="progress"></span></button>
-          <button id="simplicity-far-side" class="box">Simplicity on the far side... <span class="progress"></span></button>
-          <button id="design-serious" class="box">We take design serious <span class="progress"></span></button>
-          <button id="laughter" class="box">(Laughter) <span class="progress"></span></button>
-          <button id="grumpy" class="box">I have a grumpy resting face <span class="progress"></span></button>
-          <button id="fuck-1" class="box">Fuck 1 <span class="progress"></span></button>
-          <button id="fuck-2" class="box">Fuck 2 <span class="progress"></span></button>
-          <button id="fuck-3" class="box">Fuck 3 <span class="progress"></span></button>
-          <button id="aim-to-design" class="box">Our aim is to design <span class="progress"></span></button>
-          <button id="gibberish-1" class="box">Gibberish 1 <span class="progress"></span></button>
-          <button id="gibberish-2" class="box">Gibberish 2 <span class="progress"></span></button>
-          <button id="clear-throat" class="box">(Clears throat) <span class="progress"></span></button>
-          <button id="bam" class="box">Bam bam bam <span class="progress"></span></button>
-          <button id="atlassian" class="box">At Atlassian <span class="progress"></span></button>
-          <button id="right" class="box">Right <span class="progress"></span></button>
-          <button id="jony-ive" class="box">I don’t need to talk as slow as Jony Ive <span class="progress"></span></button>
-          <button id="simplifying" class="box">Simplifying is freakin’ hard <span class="progress"></span></button>
-          <button id="uhm" class="box">Uhm <span class="progress"></span></button>
-          <button id="flow" class="box">Being in the flow <span class="progress"></span></button>
-          <button id="effortless" class="box">Create an effortless and harmonious... <span class="progress"></span></button>
-          <button id="to-do-this" class="box">To do this <span class="progress"></span></button>
-          <button id="hunga" class="box">Do you have the hunga <span class="progress"></span></button>
-          <button id="really-understand-customers" class="box">Really understand how our customers... <span class="progress"></span></button>
-          <button id="whole-thing" class="box">I try the whole thing... <span class="progress"></span></button>
+        <div class="soundbites">
+          <button id="atlassian" class="box audio">At Atlassian <span class="progress"></span></button>
+          <button id="confused" class="box audio">I’m getting confused <span class="progress"></span></button>
+          <button id="simplicity-far-side" class="box audio">Simplicity on the far side... <span class="progress"></span></button>
+          <button id="design-serious" class="box audio">We take design serious <span class="progress"></span></button>
+          <button id="laughter" class="box audio">(Laughter) <span class="progress"></span></button>
+          <button id="grumpy" class="box audio">I have a grumpy resting face <span class="progress"></span></button>
+          <button id="fuck-1" class="box audio">Fuck 1 <span class="progress"></span></button>
+          <button id="fuck-2" class="box audio">Fuck 2 <span class="progress"></span></button>
+          <button id="fuck-3" class="box audio">Fuck 3 <span class="progress"></span></button>
+          <button id="aim-to-design" class="box audio">Our aim is to design <span class="progress"></span></button>
+          <button id="gibberish-1" class="box audio">Gibberish 1 <span class="progress"></span></button>
+          <button id="gibberish-2" class="box audio">Gibberish 2 <span class="progress"></span></button>
+          <button id="clear-throat" class="box audio">(Clears throat) <span class="progress"></span></button>
+          <button id="bam" class="box audio">Bam bam bam <span class="progress"></span></button>
+          <button id="right" class="box audio">Right, yes, yep, yeah <span class="progress"></span></button>
+          <button id="jony-ive" class="box audio">I don’t need to talk as slow as Jony Ive <span class="progress"></span></button>
+          <button id="simplifying" class="box audio">Simplifying is freakin’ hard <span class="progress"></span></button>
+          <button id="uhm" class="box audio">Uhm <span class="progress"></span></button>
+          <button id="flow" class="box audio">Being in the flow <span class="progress"></span></button>
+          <button id="effortless" class="box audio">Create an effortless &amp; harmonious... <span class="progress"></span></button>
+          <button id="to-do-this" class="box audio">To do this <span class="progress"></span></button>
+          <button id="hunga" class="box audio">Do you have the hunga <span class="progress"></span></button>
+          <button id="really-understand-customers" class="box audio">Really understand how our customers... <span class="progress"></span></button>
+          <button id="whole-thing" class="box audio">I try the whole thing... <span class="progress"></span></button>
+          <button id="random-mode" class="box"><img src="assets/shuffle.svg" width="24" height="24"></button>
         </div>
     </div>
+
+    <div>
+      <audio id="design-serious-audio" src="assets/take-design-serious.ogg"></audio>
+      <audio id="confused-audio" src="assets/confused.ogg"></audio>
+      <audio id="simplicity-far-side-audio" src="assets/simplicity-far-side.ogg"></audio>
+      <audio id="laughter-audio" src="assets/laughter.ogg"></audio>
+      <audio id="grumpy-audio" src="assets/grumpy.ogg"></audio>
+      <audio id="fuck-1-audio" src="assets/fuck-1.ogg"></audio>
+      <audio id="fuck-2-audio" src="assets/fuck-2.ogg"></audio>
+      <audio id="fuck-3-audio" src="assets/fuck-3.ogg"></audio>
+      <audio id="aim-to-design-audio" src="assets/aim-to-design.ogg"></audio>
+      <audio id="gibberish-1-audio" src="assets/gibberish-1.ogg"></audio>
+      <audio id="gibberish-2-audio" src="assets/gibberish-2.ogg"></audio>
+      <audio id="clear-throat-audio" src="assets/clear-throat.ogg"></audio>
+      <audio id="bam-audio" src="assets/bam.ogg"></audio>
+      <audio id="atlassian-audio" src="assets/atlassian.ogg"></audio>
+      <audio id="right-audio" src="assets/right.ogg"></audio>
+      <audio id="jony-ive-audio" src="assets/jony-ive.ogg"></audio>
+      <audio id="simplifying-audio" src="assets/simplifying.ogg"></audio>
+      <audio id="uhm-audio" src="assets/uhm.ogg"></audio>
+      <audio id="flow-audio" src="assets/flow.ogg"></audio>
+      <audio id="effortless-audio" src="assets/effortless.ogg"></audio>
+      <audio id="to-do-this-audio" src="assets/to-do-this.ogg"></audio>
+      <audio id="hunga-audio" src="assets/hunga.ogg"></audio>
+      <audio id="really-understand-customers-audio" src="assets/really-understand-customers.ogg"></audio>
+      <audio id="whole-thing-audio" src="assets/whole-thing.ogg"></audio>
+    </div>
   </body>
-
-  <audio id="confused-audio" src="assets/confused.ogg"></audio>
-  <audio id="simplicity-far-side-audio" src="assets/simplicity-far-side.ogg"></audio>
-  <audio id="design-serious-audio" src="assets/take-design-serious.ogg"></audio>
-  <audio id="laughter-audio" src="assets/laughter.ogg"></audio>
-  <audio id="grumpy-audio" src="assets/grumpy.ogg"></audio>
-  <audio id="fuck-1-audio" src="assets/fuck-1.ogg"></audio>
-  <audio id="fuck-2-audio" src="assets/fuck-2.ogg"></audio>
-  <audio id="fuck-3-audio" src="assets/fuck-3.ogg"></audio>
-  <audio id="aim-to-design-audio" src="assets/aim-to-design.ogg"></audio>
-  <audio id="gibberish-1-audio" src="assets/gibberish-1.ogg"></audio>
-  <audio id="gibberish-2-audio" src="assets/gibberish-2.ogg"></audio>
-  <audio id="clear-throat-audio" src="assets/clear-throat.ogg"></audio>
-  <audio id="bam-audio" src="assets/bam.ogg"></audio>
-  <audio id="atlassian-audio" src="assets/atlassian.ogg"></audio>
-  <audio id="right-audio" src="assets/right.ogg"></audio>
-  <audio id="jony-ive-audio" src="assets/jony-ive.ogg"></audio>
-  <audio id="simplifying-audio" src="assets/simplifying.ogg"></audio>
-  <audio id="uhm-audio" src="assets/uhm.ogg"></audio>
-  <audio id="flow-audio" src="assets/flow.ogg"></audio>
-  <audio id="effortless-audio" src="assets/effortless.ogg"></audio>
-  <audio id="to-do-this-audio" src="assets/to-do-this.ogg"></audio>
-  <audio id="hunga-audio" src="assets/hunga.ogg"></audio>
-  <audio id="really-understand-customers-audio" src="assets/really-understand-customers.ogg"></audio>
-  <audio id="whole-thing-audio" src="assets/whole-thing.ogg"></audio>
-
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="js/app.js"></script>

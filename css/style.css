@@ -20,7 +20,7 @@ body {
   max-width: 960px;
 }
 
-.audio {
+.soundbites {
   align-content: flex-end;
   display: flex;
   flex-direction: row;
@@ -49,8 +49,9 @@ button.box {
 }
 
 button.box:hover {
-  background-color: #B2EBF2;
+  border: 3px solid #1565C0;
   box-shadow: 0px 2px 0px rgba(0,0,0,0.1);
+  color: #1565C0;
   margin-top: 8px;
   margin-bottom: 12px;
 }
@@ -61,16 +62,22 @@ button.box:active {
   margin-top: 12px;
 }
 
+button.box.playing {
+  color: #1565C0;
+  border: 3px solid #1565C0;
+}
+
 span.progress {
-  background-color: rgba(0,0,0,0.05);
+  background-color: #1565C0;
   bottom: 0;
-  display: block;
-  height: 100%;
+  opacity: 0;
+  height: 2px;
   left: 0;
   position: absolute;
   width: 0;
 }
 
-.active span.progress {
+.playing span.progress {
+  opacity: 1;
   width: 100%;
 }
