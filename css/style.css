@@ -11,6 +11,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+sup {
+  font-size: 10px;
+  margin-left: 5px;
+}
+
 .center {
   text-align: center;
 }
@@ -80,4 +85,31 @@ span.progress {
 .playing span.progress {
   opacity: 1;
   width: 100%;
+}
+
+#random-mode:hover #random-mode-icon {
+  background-position: -24px;
+}
+
+#random-mode-icon {
+  display: block;
+  margin: 0 auto;
+  background-image: url("../assets/img/shuffle.svg");
+  background-repeat: no-repeat;
+  background-position: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.random #random-mode:hover #random-mode-icon {
+  background-position: -48px;
+}
+
+.random #random-mode {
+  color: #1565C0;
+  border: 3px solid #1565C0;
+}
+
+.random #random-mode-icon {
+  background-position: -48px;
 }

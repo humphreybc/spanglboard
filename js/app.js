@@ -41,7 +41,11 @@ $( document ).ready(function(){
     setTimeout(function(){ 
       a.play();
       showProgress(id, length);
-      randomMode();
+      if ($("body").hasClass("random")) {
+        randomMode();
+      } else {
+        return;
+      }
     }, length * 800);
   }
 
