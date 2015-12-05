@@ -99,6 +99,7 @@ span.progress {
   background-position: 0;
   width: 24px;
   height: 24px;
+  transition: transform 250ms;
 }
 
 .random #random-mode:hover #random-mode-icon {
@@ -112,4 +113,5 @@ span.progress {
 
 .random #random-mode-icon {
   background-position: -48px;
+  /*transform: rotate(360deg)*/
 }

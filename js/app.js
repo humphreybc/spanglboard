@@ -1,65 +1,66 @@
-$( document ).ready(function(){
+$(document).ready(function() {
+
+  var body = $("body");
 
   function getAudio(id) {
-    a = document.getElementById(id + "-audio");
-    return a;
+    return document.getElementById(id + "-audio");
   }
 
-  function playAudio(id){
-    a = getAudio(id);
-    length = getLength(a);
+  function getLength(a) {
+    return a.duration;
+  }
+
+  function playAudio(id) {
+    var a = getAudio(id);
+    var length = getLength(a);
     showProgress(id, length);
-    
     a.play();
-  }
-
-  function getLength(a){
-    length = a.duration;
     return length;
   }
 
-  function showProgress(id, length){
-    id = "#" + id;
-    transition = "transition: width " + length + "s linear;"
+  function toggleProgressBar(id, transition) {
     $(id).find(".progress").attr("style", transition);
-    $(id).addClass("playing");
-    
-    setTimeout(function(){
-      $(id).removeClass("playing");
+    $(id).toggleClass("playing", transition);
+  }
+
+  function showProgress(id, length) {
+    var id = "#" + id;
+    var transition = "transition: width " + length + "s linear;"
+    toggleProgressBar(id, transition);
+
+    setTimeout(function() {
+      toggleProgressBar(id, false);
     }, length * 1000);
   }
 
-  function randomMode() {
+  function randomSoundbite() {
     var soundbites = $(".audio");
     var number = Math.floor(Math.random() * soundbites.length);
-    var soundbite = soundbites[number];
-
-    id = soundbite.id;
-    a = getAudio(id);
-    length = getLength(a);
-
-    setTimeout(function(){ 
-      a.play();
-      showProgress(id, length);
-      if ($("body").hasClass("random")) {
-        randomMode();
-      } else {
-        return;
-      }
-    }, length * 800);
+    return soundbites[number];
   }
 
-  $(".audio").on("click", function(){
+  function randomMode() {
+    var id = randomSoundbite().id;
+    var length = playAudio(id);
+
+    setTimeout(function() {
+      if (! body.hasClass("random")) {
+        return; 
+      }
+      randomMode();
+    }, length * 900);
+  }
+
+  $(".audio").on("click", function() {
     playAudio(this.id);
   });
 
-  $("#random-mode").on("click", function(){
-    if ($("body").hasClass("random")) {
-      $("body").removeClass("random");
+  $("#random-mode").on("click", function() {
+    if (body.hasClass("random")) {
+      body.removeClass("random");
     } else {
-      $("body").addClass("random");
+      body.addClass("random");
       randomMode();
     }
   });
-
 });
