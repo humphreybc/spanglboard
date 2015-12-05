@@ -3,6 +3,7 @@ var audioEls = document.getElementsByClassName("audio");
 
 addClickHandlerToAudio();
 addClickHandlerToRandomMode();
+loadAudioFiles();
 
 function getAudio(id) {
   return document.getElementById(id + "-audio");
@@ -71,4 +72,11 @@ function addClickHandlerToRandomMode() {
       randomMode();
     }
   };
+}
+
+function loadAudioFiles() {
+  for (var i = 0; i < audioEls.length; i++) {
+    a = getAudio(audioEls[i].id);
+    a.load();
+  }
 }
