@@ -3,10 +3,10 @@ var audioEls = document.getElementsByClassName("audio");
 var soundbitesEl = document.getElementById("soundbites");
 var audioFilesEl = document.getElementById("audio-files");
 
-var soundbites = {"atlassian":"At Atlassian", 
+var soundbites = {"at-atlassian":"At Atlassian", 
                   "confused":"I’m getting confused again",
                   "whoops":"Whoops",
-                  "simplicity-far-side":"Simplicity on the far side of complexity",
+                  "simplicity":"Simplicity on the far side of complexity",
                   "sidebar":"Sidebar",
                   "design-serious":"We take design serious",
                   "laughter":"(Laughter)",
@@ -17,7 +17,7 @@ var soundbites = {"atlassian":"At Atlassian",
                   "aim-to-design":"Our aim is to design",
                   "gibberish-1":"Gibberish 1",
                   "gibberish-2":"Gibberish 2",
-                  "discovered":"We discovered",
+                  "we-discovered":"We discovered",
                   "clear-throat":"(Clears throat)",
                   "bam":"Bam bam bam",
                   "right":"Right, yes, yep, yeah",
@@ -49,13 +49,11 @@ function getAudio(id) {
 }
 
 function getLength(a) {
-  console.log(a.duration);
   return a.duration;
 }
 
 function playAudio(id) {
   var a = getAudio(id);
-  console.log(a);
   var length = getLength(a);
   showProgress(id, length);
   a.play();
@@ -70,7 +68,6 @@ function toggleProgressBar(id, transition) {
 }
 
 function showProgress(id, length) {
-  console.log(length);
   var transition = "transition: width " + length + "s linear;"
   toggleProgressBar(id, transition);
 
@@ -87,6 +84,8 @@ function randomSoundbite() {
 function randomMode() {
   var id = randomSoundbite().id;
   var length = playAudio(id);
+
+  history.replaceState("", document.title, window.location.pathname);
 
   setTimeout(function() {
     if (! body.classList.contains("random")) {
@@ -108,6 +107,7 @@ function addClickHandlerToAudio() {
   for (var i = 0; i < audioEls.length; i++) {
     audioEls[i].onclick = function() {
       playAudio(this.id);
+      history.replaceState("", document.title, window.location.pathname + "#" + this.id);
     };
   }
 }
