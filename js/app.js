@@ -40,16 +40,22 @@ addClickHandlerToAudio();
 addClickHandlerToRandomMode();
 loadAudioFiles();
 
+setTimeout(function() {
+  playAudioFromUrl();
+}, 200);
+
 function getAudio(id) {
   return document.getElementById(id + "-audio");
 }
 
 function getLength(a) {
+  console.log(a.duration);
   return a.duration;
 }
 
 function playAudio(id) {
   var a = getAudio(id);
+  console.log(a);
   var length = getLength(a);
   showProgress(id, length);
   a.play();
@@ -64,6 +70,7 @@ function toggleProgressBar(id, transition) {
 }
 
 function showProgress(id, length) {
+  console.log(length);
   var transition = "transition: width " + length + "s linear;"
   toggleProgressBar(id, transition);
 
@@ -123,3 +130,13 @@ function loadAudioFiles() {
     a.load();
   }
 }
+
+function playAudioFromUrl() {
+  var id = window.location.hash.substring(1);
+  if (id !== "") {
+    playAudio(id);
+  }
+}
+
+
+
