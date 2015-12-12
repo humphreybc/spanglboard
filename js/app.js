@@ -42,7 +42,7 @@ loadAudioFiles();
 
 setTimeout(function() {
   playAudioFromUrl();
-}, 200);
+}, 300);
 
 function getAudio(id) {
   return document.getElementById(id + "-audio");
