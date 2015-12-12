@@ -42,7 +42,7 @@ loadAudioFiles();
 
 setTimeout(function() {
   playAudioFromUrl();
-}, 300);
+}, 500);
 
 function getAudio(id) {
   return document.getElementById(id + "-audio");
@@ -108,6 +108,9 @@ function addClickHandlerToAudio() {
     audioEls[i].onclick = function() {
       playAudio(this.id);
       history.replaceState("", document.title, window.location.pathname + "#" + this.id);
+      mixpanel.track('Soundbite played', {
+        'id' : this.id
+      });
     };
   }
 }
@@ -119,6 +122,7 @@ function addClickHandlerToRandomMode() {
       body.className = "";
     } else {
       body.className = "random";
+      mixpanel.track("Random Mode played");
       randomMode();
     }
   };
@@ -135,6 +139,9 @@ function playAudioFromUrl() {
   var id = window.location.hash.substring(1);
   if (id !== "") {
     playAudio(id);
+    mixpanel.track('Soundbite played from URL', {
+      'id' : id
+    });
   }
 }
 
