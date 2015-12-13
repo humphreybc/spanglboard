@@ -132,6 +132,8 @@ function loadAudioFiles() {
   for (var i = 0; i < audioEls.length; i++) {
     a = getAudio(audioEls[i].id);
     a.load();
+    a.play();
+    a.pause();
   }
 }
 
