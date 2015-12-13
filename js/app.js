@@ -108,8 +108,8 @@ function addClickHandlerToAudio() {
     audioEls[i].onclick = function() {
       playAudio(this.id);
       history.replaceState("", document.title, window.location.pathname + "#" + this.id);
-      mixpanel.track('Soundbite played', {
-        'id' : this.id
+      mixpanel.track("Soundbite played", {
+        "id" : this.id
       });
     };
   }
@@ -141,8 +141,8 @@ function playAudioFromUrl() {
   var id = window.location.hash.substring(1);
   if (id !== "") {
     playAudio(id);
-    mixpanel.track('Soundbite played from URL', {
-      'id' : id
+    mixpanel.track("Soundbite played from URL", {
+      "id" : id
     });
   }
 }
