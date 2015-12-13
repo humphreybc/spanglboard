@@ -103,6 +103,25 @@ function populateContent() {
   soundbitesEl.insertAdjacentHTML('beforeend', '<button id="random-mode" class="box" title="Shuffler 9000™"><span id="random-mode-icon"></span></button>');
 }
 
+function loadAudioFiles() {
+  for (var i = 0; i < audioEls.length; i++) {
+    a = getAudio(audioEls[i].id);
+    a.load();
+    a.play();
+    a.pause();
+  }
+}
+
+function playAudioFromUrl() {
+  var id = window.location.hash.substring(1);
+  if (id !== "") {
+    playAudio(id);
+    mixpanel.track("Soundbite played from URL", {
+      "id" : id
+    });
+  }
+}
+
 function addClickHandlerToAudio() {
   for (var i = 0; i < audioEls.length; i++) {
     audioEls[i].onclick = function() {
@@ -128,21 +147,16 @@ function addClickHandlerToRandomMode() {
   };
 }
 
-function loadAudioFiles() {
-  for (var i = 0; i < audioEls.length; i++) {
-    a = getAudio(audioEls[i].id);
-    a.load();
-    a.play();
-    a.pause();
-  }
+function keyboardShorcuts(charCode) {
+  // charCode = charCode - 97;
+  console.log(charCode);
 }
 
-function playAudioFromUrl() {
-  var id = window.location.hash.substring(1);
-  if (id !== "") {
-    playAudio(id);
-    mixpanel.track("Soundbite played from URL", {
-      "id" : id
-    });
-  }
-}
+document.onkeypress = function(e) {
+    e = e || window.event;
+    var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
+    if (charCode) {
+      keyboardShorcuts(charCode);
+    }
+};
+
