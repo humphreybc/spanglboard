@@ -52,14 +52,7 @@ button.box {
   -webkit-tap-highlight: none;
   outline: none;
   z-index: 1;
-}
-
-button.box:hover {
-  border: 3px solid #1565C0;
-  box-shadow: 0px 2px 0px rgba(0,0,0,0.1);
-  color: #1565C0;
-  margin-top: 8px;
-  margin-bottom: 12px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 button.box:active {
@@ -115,4 +108,14 @@ span.progress {
 .random #random-mode-icon {
   background-position: -48px;
   /*transform: rotate(360deg)*/
+}
+
+@media screen and (min-width: 375px) {
+  button.box:hover {
+    border: 3px solid #1565C0;
+    box-shadow: 0px 2px 0px rgba(0,0,0,0.1);
+    color: #1565C0;
+    margin-top: 8px;
+    margin-bottom: 12px;
+  }
 }
