@@ -2,6 +2,12 @@ var body = document.body;
 var audioEls = document.getElementsByClassName("audio");
 var soundbitesEl = document.getElementById("soundbites");
 var audioFilesEl = document.getElementById("audio-files");
+var personaEl = document.getElementById("persona");
+
+var personaSoundbites = {
+    "benjamin": "Benjamin",
+    "sherif": "Sherif"
+};
 
 var soundbites = {"at-atlassian":"At Atlassian", 
                   "confused":"I’m getting confused again",
@@ -61,10 +67,12 @@ function playAudio(id) {
 }
 
 function toggleProgressBar(id, transition) {
-  id = document.getElementById(id);
-  var progressEl = id.children[0];
-  progressEl.setAttribute("style", transition);
-  id.classList.toggle("playing", transition);
+  var el = document.getElementById(id);
+  if (el) {
+      var progressEl = el.children[0];
+      progressEl.setAttribute("style", transition);
+      el.classList.toggle("playing", transition);
+  }
 }
 
 function showProgress(id, length) {
@@ -96,6 +104,10 @@ function randomMode() {
 }
 
 function populateContent() {
+  for (var key in personaSoundbites) {
+    personaEl.insertAdjacentHTML('beforeend', '<option value="' + key + '">' + personaSoundbites[key] + '</option>');
+    audioFilesEl.insertAdjacentHTML('beforeend', '<audio id=' + key + '-persona-audio' + ' src="assets/mp3/' + key + '.mp3" preload="auto" type="audio/mp3"></audio>');
+  }
   for (var key in soundbites) {
     soundbitesEl.insertAdjacentHTML('beforeend', '<button id=' + key + ' class="box audio">' + soundbites[key] + '<span class="progress"></span></button>');
     audioFilesEl.insertAdjacentHTML('beforeend', '<audio id=' + key + '-audio' + ' src="assets/mp3/' + key + '.mp3" preload="auto" type="audio/mp3"></audio>');
@@ -106,11 +118,24 @@ function populateContent() {
 function addClickHandlerToAudio() {
   for (var i = 0; i < audioEls.length; i++) {
     audioEls[i].onclick = function() {
-      playAudio(this.id);
-      history.replaceState("", document.title, window.location.pathname + "#" + this.id);
-      mixpanel.track("Soundbite played", {
-        "id" : this.id
-      });
+      var soundbiteId = this.id;
+      var personaValue = personaEl.options[personaEl.selectedIndex].value;
+      if (personaValue) {
+        var personaLength = playAudio(personaValue + "-persona");
+        setTimeout(function() { playAudio(soundbiteId); }, personaLength * 1000);
+        history.replaceState("", document.title, window.location.pathname + "#" + personaValue + "::" + soundbiteId);
+        mixpanel.track("Soundbite played", {
+          "id" : soundbiteId,
+          "persona": personaValue
+        });
+      }
+      else {
+          playAudio(soundbiteId);
+          history.replaceState("", document.title, window.location.pathname + "#" + soundbiteId);
+          mixpanel.track("Soundbite played", {
+              "id" : soundbiteId
+          });
+      }
     };
   }
 }
@@ -140,9 +165,23 @@ function loadAudioFiles() {
 function playAudioFromUrl() {
   var id = window.location.hash.substring(1);
   if (id !== "") {
-    playAudio(id);
-    mixpanel.track("Soundbite played from URL", {
-      "id" : id
-    });
+    var splitPos = id.indexOf("::");
+    if (splitPos >= 0) {
+      var persona = id.substr(0, splitPos);
+      var soundbiteId = id.substr(splitPos + 2);
+      var length = playAudio(persona + "-persona");
+      setTimeout(function() { playAudio(soundbiteId); }, length * 1000);
+      mixpanel.track("Soundbite played from URL", {
+        "id" : soundbiteId,
+        "person": persona
+      });
+      personaEl.value = persona;
+    }
+    else {
+      playAudio(id);
+      mixpanel.track("Soundbite played from URL", {
+        "id" : id
+      });
+    }
   }
 }
